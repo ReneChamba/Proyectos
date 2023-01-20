@@ -1,0 +1,477 @@
+.container--control {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.container--control,
+.container--recibir--datos,
+.container--tabla,
+.container--resultado,
+.container--notas,
+.container--promedio {
+  max-width: 500px;
+}
+
+.container--tabla,
+.container--resultado,
+.container--notas {
+  margin: 10px;
+  border-radius: 10px;
+}
+.container--errores {
+  /* background-color: red; */
+  margin: 10px;
+  max-width: 500px;
+  border-radius: 10px;
+}
+/* FORMULARIO CONTROL */
+.content {
+  width: 100%;
+  padding: 15px 10px;
+  max-width: 500px;
+  /* background-color: white; */
+  border-radius: 10px;
+}
+.title--control,
+.title--recibir--datos,
+.title--errores,
+.title--notas {
+  font-size: 1.2em;
+}
+.ocupacion {
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.ocupacion__title,
+.sexo__title {
+  display: block;
+  font-size: 1.2em;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.ocupacion__tipo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.ocupacion__tipo .estudiante,
+.ocupacion__tipo .profesional,
+.ocupacion__tipo .hogar {
+  padding: 5px 7px;
+  width: 100%;
+}
+
+.sexo__select {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.imagen__img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+.paragrah {
+  margin-top: 15px;
+  font-size: 1.1em;
+}
+.enlaces {
+  margin-top: 20px;
+}
+
+.datos__tabla {
+  margin-top: 20px;
+}
+.datos__valores span {
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.datos-resultado {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  max-height: 150px;
+  overflow: hidden;
+}
+.container--notas .form__submit {
+  margin-top: 30px;
+}
+.form--notas label {
+  font-size: 1.2em;
+}
+.form--notas select {
+  font-size: 1.1em;
+}
+/* .container--control,
+.container--recibir--datos,
+.container--resultado,
+.container--notas,
+.container--promedio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container--control {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+}
+.title--control {
+  font-size: 1em;
+  background-color: green;
+} */
+/*  Formulario de notas  */
+
+/* .container--notas {
+  max-width: 500px;
+} */
+
+/* Formulario Promedio */
+/* .container--promedio {
+  width: 80%;
+  max-width: 1100px;
+} */
+/* Formulario Promedio Final */
+
+/* .container--promedio--final {
+  width: 95%;
+  max-width: 1300px;
+} */
+
+/* .form--control,
+.form__datos--recibir,
+.form--notas,
+.form--tabla {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+} */
+
+/* .ocupacion,
+.sexo,
+.curso,
+.paralelo,
+.materia,
+.container__datos {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.ocupacion__title,
+.sexo__title,
+.curso__title,
+.paralelo__title,
+.materia__title {
+  display: block;
+  line-height: 40px;
+  color: black;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.ocupacion__tipo,
+.paralelo__tipo {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+} */
+/* .ocupacion__tipo label,
+.paralelo__tipo label,
+.container__datos label {
+  font-size: 1em;
+  margin-left: 2px;
+  color: black;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.sexo,
+.curso,
+.materia {
+  margin-top: 0;
+  margin-bottom: 30px;
+  display: flex;
+} */
+/* .sexo__title,
+.curso__title,
+.materia__title {
+  margin-bottom: 0;
+  margin-right: 30px;
+}
+.sexo__select,
+.curso__select,
+.materia__select {
+  font-size: 1em;
+  line-height: 40px;
+  padding: 0 10px;
+}
+.form__submit,
+.enlaces {
+  align-self: center;
+  margin-bottom: 10px;
+} */
+
+/* Estilos del archivo recibir.html */
+
+/* .form__datos--recibir {
+  margin-top: 10px;
+}
+.imagen {
+  margin-top: 10px;
+  width: 100%;
+  height: 130px;
+}
+.imagen .imagen__img {
+  max-width: 30%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.datos__recibir {
+  width: 100%;
+  display: flex;
+  margin: 5px 0;
+  line-height: 40px;
+}
+.datos--sexo {
+  margin-bottom: 30px;
+}
+
+.datos__recibir .form__input[type="text"],
+.datos__recibir .form__input[type="email"],
+.datos__recibir .form__input[type="number"] {
+  margin: 0;
+}
+
+.datos__recibir label {
+  width: 35%;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+} */
+
+/* ESTILOS DE FORMULARIO NOTAS */
+
+/* .curso__select,
+.materia__select,
+.sexo__select {
+  flex-grow: 1;
+} */
+
+/* ESTILOS FORMULARIO PROMEDIO */
+
+/* .datos--promedio {
+  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: minmax(300px, auto) 1fr;
+  margin-top: 30px;
+  position: relative;
+}
+.mostrar {
+  background-color: rgb(235, 235, 235);
+  box-shadow: 0 0 3px rgba(23, 29, 115, 1) inset;
+  padding: 30px 20px;
+  border-radius: 10px;
+  border-top-left-radius: 40px;
+} */
+
+/* .datos--promedio .subtitulo,
+.form--promedio .subtitulo {
+  margin: 0;
+  font-size: 1.6em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: rgba(23, 29, 115, 0.1);
+}
+
+.mostrar__datos span {
+  display: block;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.form--promedio {
+  margin-top: 0;
+}
+
+.table {
+  width: 100%;
+}
+.table,
+th {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+.table__head th {
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  padding: 15px 0;
+  font-weight: 700;
+  text-transform: capitalize;
+  background: rgb(211, 248, 249);
+  background: linear-gradient(
+    0deg,
+    rgba(211, 248, 249, 1) 0%,
+    rgba(45, 101, 253, 1) 100%
+  );
+  color: black;
+}
+
+.form__enviar {
+  margin-top: 20px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+} */
+
+/* Estilos formulario promediofinal */
+/* .container--promediofinal {
+  padding: 10px;
+}
+
+.container--promedio--final .form__submit {
+  background: rgb(255, 69, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 69, 0, 1) 0%,
+    rgba(253, 219, 45, 1) 100%
+  );
+  width: 45%;
+  margin-top: 30px;
+} */
+
+/* .container--promedio--final .table__head th {
+  background: rgb(214, 200, 157);
+  background: linear-gradient(
+    284deg,
+    rgba(214, 200, 157, 1) 0%,
+    rgba(237, 202, 176, 1) 100%
+  );
+  color: black;
+  font-size: 1em;
+}
+
+.estado {
+  margin-top: 30px;
+}
+.estado span {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+} */
+
+/* Estilos del resultado.php */
+/* .container--resultado {
+  margin: 10px 0;
+}
+.datos__tabla {
+  margin-top: 20px;
+}
+.datos__valores {
+  padding: 10px 0;
+}
+.datos__valores span {
+  font-size: 1.2em;
+  text-transform: capitalize;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+} */
+/* .datos__tabla .form__input[type="text"] {
+  color: black;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: rgba(23, 29, 115, 1);
+  padding: 5px;
+}
+
+.valor__Multiplicar {
+  margin-top: 15px;
+  width: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+} */
+
+/* .valor__Multiplicar span {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.datos__tabla p {
+  font-size: 2em;
+  font-weight: normal;
+  text-align: center;
+}
+.datos__span--resul {
+  color: rgba(23, 29, 115, 1);
+} */
+
+/* Estilos de los mensajes de error */
+
+/* .container--errores {
+  width: 50%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+} */
+/* .paragrah {
+  width: 100%;
+  text-align: justify;
+  font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+} */
+
+@media screen and (min-width: 468px) {
+  .container--control,
+  .container--recibir--datos {
+    min-height: auto;
+    border-radius: 10px;
+  }
+  .container--recibir--datos {
+    padding: 20px;
+  }
+  .content {
+    padding: 20px;
+  }
+  .ocupacion__tipo .estudiante,
+  .ocupacion__tipo .profesional,
+  .ocupacion__tipo .hogar {
+    width: 33%;
+    text-align: center;
+  }
+}

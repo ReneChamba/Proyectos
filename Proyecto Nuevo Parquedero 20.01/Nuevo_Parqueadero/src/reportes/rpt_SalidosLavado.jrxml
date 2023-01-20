@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57929cdc-9b8c-4e6d-ba49-af8ecaff8c91">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtrar_fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tabla_lavado.`FECHA_DATE` AS tabla_lavado_FECHA_DATE,
+     tabla_lavado.`FECHA_REGISTRO` AS tabla_lavado_FECHA_REGISTRO,
+     tabla_lavado.`PLACA` AS tabla_lavado_PLACA,
+     tabla_lavado.`TIPO_VEHICULO` AS tabla_lavado_TIPO_VEHICULO,
+     tabla_lavado.`COBRADO` AS tabla_lavado_COBRADO,
+     tabla_lavado.`ID_LAVADO` AS tabla_lavado_ID_LAVADO
+FROM
+     `tabla_lavado` tabla_lavado $P!{filtrar_fecha}
+ORDER BY tabla_lavado.`FECHA_DATE` DESC]]>
+	</queryString>
+	<field name="tabla_lavado_FECHA_DATE" class="java.sql.Date"/>
+	<field name="tabla_lavado_FECHA_REGISTRO" class="java.sql.Timestamp"/>
+	<field name="tabla_lavado_PLACA" class="java.lang.String"/>
+	<field name="tabla_lavado_TIPO_VEHICULO" class="java.lang.String"/>
+	<field name="tabla_lavado_COBRADO" class="java.lang.Double"/>
+	<field name="tabla_lavado_ID_LAVADO" class="java.lang.Integer"/>
+	<variable name="numVehiculos" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tabla_lavado_FECHA_DATE}]]></variableExpression>
+	</variable>
+	<variable name="total_cobrado" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tabla_lavado_COBRADO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="0" width="375" height="31" forecolor="#339900" uuid="30d54eee-3a24-4805-8cb7-9294000192fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Vehículos Salidos Lavado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="31" width="240" height="20" uuid="08284ff8-66fd-4b18-9220-3357f7ae9674"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto: ronny-leo2011@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="51" width="196" height="20" uuid="932083d9-a86b-46c9-96b5-9caba183a161"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono: 0981806210- 2764967]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="20" uuid="50d0afe1-e13c-4f84-9488-f7f1256de1d5"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="120" y="0" width="158" height="20" forecolor="#333300" uuid="aced8dcc-db2a-4835-9b52-c351ad84dd6e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="32" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="8694df44-7761-4d13-bc8c-2289a1fd891b"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="10" y="0" width="100" height="20" backcolor="#99FF33" uuid="711bc684-40e0-40f2-956a-a87c10b06030"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Lavado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="0" width="100" height="20" backcolor="#99FF33" uuid="37fdde9b-3784-48b8-ad4b-2f86941348e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="234" y="2" width="100" height="20" backcolor="#99FF33" uuid="e144d348-f8c9-451a-b98c-b1ed2f792f33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="346" y="2" width="100" height="20" backcolor="#99FF33" uuid="a4e69e60-2a1e-4aeb-84b6-6040af54f64b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="455" y="2" width="81" height="20" backcolor="#99FF33" uuid="a280129a-e355-4a95-af61-19cc8a66c95e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cobrado]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="24" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="cef23ac9-6a62-4e45-80b6-9a1d202891ee"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="100" height="20" uuid="6b48ff2f-0ea0-4354-a0be-588721f46f6b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_ID_LAVADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="100" height="20" uuid="a1919e68-29b9-48a2-9796-fe9911b2166f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_FECHA_REGISTRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="6" width="100" height="20" uuid="2d5c6e1d-0126-49a2-9ace-6a5bffab7c5e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_PLACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="6" width="100" height="20" uuid="dea674ad-e5f4-493e-8c96-e928fa44c882"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_TIPO_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="6" width="81" height="20" forecolor="#333300" uuid="8e163cc8-6d25-4092-a536-78bbea7521cb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_COBRADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="bfa750c8-8309-4f80-a757-5e3a953ea82c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Vehículos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" forecolor="#333300" uuid="5d5f78af-8b07-492f-8df0-62c6f24a69bf"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{numVehiculos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="28" width="100" height="20" uuid="6ef80944-ed4d-4f81-9e30-7deb850419f8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$ Ingresos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="28" width="100" height="20" forecolor="#333300" uuid="ec547b9c-8c32-48d2-95dd-ce6f9623b607"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_cobrado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="474" y="8" width="61" height="20" uuid="1bec3612-306a-4345-8023-cc3b96429126"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[# Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="32" width="79" height="20" uuid="a0f9a8fb-5e5d-4829-9fd0-e209704d2847"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Páginas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="536" y="8" width="19" height="20" uuid="b178f789-b774-4a46-9d83-eae8bf577d71"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="535" y="28" width="20" height="20" uuid="0e4bed3e-6c78-4d36-9e44-344f70757552"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

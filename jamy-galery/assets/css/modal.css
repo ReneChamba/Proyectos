@@ -1,0 +1,190 @@
+.modal {
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+.modal__content {
+  display: flex;
+  /* flex-wrap: */
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.modal__description {
+  height: 45px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rebeccapurple; */
+}
+.modal__description .icon-smile-o {
+  margin-top: 5px;
+  font-size: 2em;
+  color: orange;
+}
+.redesSociales {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.redesSociales ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* background-color: red; */
+}
+.redesSociales .icon-whatsapp {
+  top: 10px;
+}
+
+.redesSociales ul li:hover {
+  transform: scale(1.2);
+}
+.redesSociales ul li a {
+  color: white;
+}
+.modal__img,
+.modal__img--big {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #fff;
+  display: none;
+}
+
+/* Agg modal.js */
+.modal__img__hidden {
+  display: none;
+}
+.modal__img__show {
+  display: block;
+}
+
+.modal__subtitle {
+  font-size: 1.5em;
+  font-family: inherit;
+  text-transform: capitalize;
+  color: white;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  /* box-shadow: 0 -2px 0 #e74c3c inset;
+  box-shadow: 0 -2px 0 red inset; */
+}
+
+.modal .modal__subtitle::first-letter {
+  color: #e74c3c;
+  font-size: 1.5em;
+  font-family: "Courier New", Courier, monospace;
+  margin-right: 2px;
+  font-weight: bold;
+}
+
+.modal__boton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: #e74c3c;
+  font-size: 2em;
+  text-align: center;
+  border-radius: 50%;
+  font-family: inherit;
+  /* transform: rotate(90deg); */
+}
+
+/* Agg desde modal.js */
+.modal__open {
+  opacity: 1;
+  z-index: 100000;
+  /* display: block; */
+}
+
+@media screen and (min-width: 240px) {
+  .modal__img {
+    width: 90%;
+  }
+  .modal__img--big {
+    width: 60%;
+  }
+  .redesSociales {
+    bottom: -15px;
+    left: 0;
+  }
+  .redesSociales ul {
+    flex-direction: row;
+  }
+  .redesSociales ul li {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 330px) {
+  .modal__img--big {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 400px) {
+  .modal__img--big {
+    width: 50%;
+  }
+  .redesSociales ul {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .modal__img {
+    width: 82%;
+  }
+  .modal__img--big {
+    width: 45%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .modal__img {
+    width: 50%;
+  }
+  .modal__img--big {
+    width: 25%;
+  }
+
+  .modal__subtitle {
+    font-size: 2em;
+  }
+  .redesSociales {
+    width: auto;
+    height: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
+  .redesSociales ul {
+    flex-direction: column;
+  }
+  .redesSociales ul li {
+    margin: 10px 10px;
+  }
+  .redesSociales .icon-whatsapp {
+    left: -7px;
+  }
+}

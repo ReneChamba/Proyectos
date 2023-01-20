@@ -1,0 +1,148 @@
+@import "variables";
+
+.container--header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 40;
+  background-color: $colorPrimary;
+}
+.content--header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+[class^="icon-"] {
+  cursor: pointer;
+  color: #53575a;
+}
+
+.title {
+  font: {
+    size: 1.5em;
+    weight: 700;
+  }
+  color: $colorTextTitle;
+  margin-right: 20px;
+  span {
+    color: $colorTextoResaltado;
+    font-style: italic;
+  }
+}
+.content-menu-search {
+  background-color: $colorMenu;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  // position: relative;
+}
+.menu {
+  margin-right: 15px;
+  .lista {
+    background-color: #ffff;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    z-index: 10;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+
+    &__item {
+      &--search {
+        display: none;
+        input {
+          padding: 5px 10px;
+          border: none;
+          border-radius: 10px;
+          width: 300px;
+          color: $colorTexto;
+        }
+      }
+    }
+
+    &__link {
+      display: block;
+      font-size: 1.1em;
+      text-align: center;
+      letter-spacing: 1px;
+      padding: 10px 10px;
+      color: $colorTexto;
+
+      &:hover {
+        color: $colorTextoHover;
+      }
+    }
+    // Clase add desde Js
+    &--view {
+      max-height: 1000px;
+    }
+  }
+  // Clase add desde Js
+  .icon-menu--hide {
+    opacity: 0;
+    transition: all 0.8s;
+  }
+}
+.search {
+  &__busqueda {
+    display: none;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    z-index: 10;
+    border: none;
+  }
+  // Clase add desde Js
+  &--view {
+    display: block;
+  }
+  // Clase add desde Js
+  .icon-search--hide {
+    opacity: 0;
+    transition: all 0.8s;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .content--header {
+    // background-color: green;
+    display: flex;
+    align-items: center;
+  }
+  .content-menu-search {
+    flex-grow: 1;
+    padding: 0;
+  }
+
+  .search {
+    display: none;
+  }
+  .menu {
+    width: 100%;
+    .icon-menu {
+      display: none;
+    }
+    .lista {
+      position: static;
+      max-height: 1000px;
+      display: flex;
+      align-items: center;
+      background-color: $colorPrimary;
+
+      &__item {
+        &--search {
+          display: block;
+          margin-left: auto;
+        }
+      }
+      &__link {
+        padding: 5px 10px;
+      }
+    }
+  }
+}

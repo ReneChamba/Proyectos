@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_Salidos_ParqueoLavado" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="64fdc07d-4f09-4829-af3d-78426fd82e60">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtrar_fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tabla_lavado_mas_parqueo.`SALIDA_DATE` AS tabla_lavado_mas_parqueo_SALIDA_DATE,
+     tabla_lavado_mas_parqueo.`FECHA_INGRESO` AS tabla_lavado_mas_parqueo_FECHA_INGRESO,
+     tabla_lavado_mas_parqueo.`FECHA_SALIDA` AS tabla_lavado_mas_parqueo_FECHA_SALIDA,
+     tabla_lavado_mas_parqueo.`PLACA` AS tabla_lavado_mas_parqueo_PLACA,
+     tabla_lavado_mas_parqueo.`TIPO_VEHICULO` AS tabla_lavado_mas_parqueo_TIPO_VEHICULO,
+     tabla_lavado_mas_parqueo.`PRECIO_HORA` AS tabla_lavado_mas_parqueo_PRECIO_HORA,
+     tabla_lavado_mas_parqueo.`TOTAL_HORAS` AS tabla_lavado_mas_parqueo_TOTAL_HORAS,
+     tabla_lavado_mas_parqueo.`TOTAL_MINUTOS` AS tabla_lavado_mas_parqueo_TOTAL_MINUTOS,
+     tabla_lavado_mas_parqueo.`COBRADO_PARQUEO` AS tabla_lavado_mas_parqueo_COBRADO_PARQUEO,
+     tabla_lavado_mas_parqueo.`COBRADO_LAVADO` AS tabla_lavado_mas_parqueo_COBRADO_LAVADO,
+     tabla_lavado_mas_parqueo.`COBRADO` AS tabla_lavado_mas_parqueo_COBRADO
+FROM
+     `tabla_lavado_mas_parqueo` tabla_lavado_mas_parqueo $P!{filtrar_fecha} ORDER BY  tabla_lavado_mas_parqueo.`SALIDA_DATE` DESC]]>
+	</queryString>
+	<field name="tabla_lavado_mas_parqueo_SALIDA_DATE" class="java.sql.Date"/>
+	<field name="tabla_lavado_mas_parqueo_FECHA_INGRESO" class="java.sql.Timestamp"/>
+	<field name="tabla_lavado_mas_parqueo_FECHA_SALIDA" class="java.sql.Timestamp"/>
+	<field name="tabla_lavado_mas_parqueo_PLACA" class="java.lang.String"/>
+	<field name="tabla_lavado_mas_parqueo_TIPO_VEHICULO" class="java.lang.String"/>
+	<field name="tabla_lavado_mas_parqueo_PRECIO_HORA" class="java.lang.String"/>
+	<field name="tabla_lavado_mas_parqueo_TOTAL_HORAS" class="java.lang.Integer"/>
+	<field name="tabla_lavado_mas_parqueo_TOTAL_MINUTOS" class="java.lang.Integer"/>
+	<field name="tabla_lavado_mas_parqueo_COBRADO_PARQUEO" class="java.lang.Double"/>
+	<field name="tabla_lavado_mas_parqueo_COBRADO_LAVADO" class="java.lang.Double"/>
+	<field name="tabla_lavado_mas_parqueo_COBRADO" class="java.lang.Double"/>
+	<variable name="numRegistros" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tabla_lavado_mas_parqueo_FECHA_INGRESO}]]></variableExpression>
+	</variable>
+	<variable name="totalCobrado" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tabla_lavado_mas_parqueo_COBRADO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="149" y="0" width="476" height="31" forecolor="#339900" uuid="01c5ab7b-c162-4748-aecd-0954a06c56ca"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Vehículos Retirados Parqueo + Lavado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="31" width="257" height="20" uuid="027c7c75-cd2f-41d4-a13d-87d0c0cc8466"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto: ronny-leo2011@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="51" width="196" height="20" uuid="6b2ebb35-f6d1-4617-af59-49f1737c4b26"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono: 0981806210 - 2764967]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="0" width="100" height="20" uuid="a78b9547-7911-4af3-81c4-29e34799e2ac"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="122" y="0" width="156" height="20" forecolor="#333300" uuid="c733a005-1cbe-4e08-b92a-1c634bfbf064"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="30" width="802" height="1" forecolor="#33CC00" backcolor="#000000" uuid="edbb54b7-9f4b-4f17-8d82-c5a9acf74656"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="86" height="20" backcolor="#99FF33" uuid="0984d11a-c7b2-4a51-815a-c5649fcfaa6e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font size="12" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="2" width="85" height="20" backcolor="#99FF33" uuid="15a039d0-2b53-4458-b2fe-9388104694be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="196" y="2" width="69" height="20" backcolor="#99FF33" uuid="365c92fa-541e-4a8f-aa83-38b88625e84c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="2" width="83" height="20" backcolor="#99FF33" uuid="f113e4f3-73c7-42de-abb8-1a5893903c9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="2" width="65" height="20" backcolor="#99FF33" uuid="e920635d-a47a-4f70-9c7a-1dc395fb18f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pre/Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="440" y="2" width="62" height="20" backcolor="#99FF33" uuid="5331351a-8ddf-403b-ad63-fc69aa0437af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total_Hra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="513" y="2" width="59" height="20" backcolor="#99FF33" uuid="f1c0e2c9-5d9a-4ce9-a4e3-e3775f9bf2e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total_Min]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="587" y="2" width="62" height="20" forecolor="#000066" backcolor="#99FF33" uuid="8f630f54-009c-4345-80f7-fe4e243d7f89"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$ Parqueo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="659" y="2" width="61" height="20" forecolor="#993300" backcolor="#99FF33" uuid="5d5e43ee-5505-442d-a055-fe2ac8c34629"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$ Lavado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="736" y="2" width="66" height="20" forecolor="#333300" backcolor="#99FF33" uuid="9a172ba8-caec-4db0-908e-7272094b58a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="27" width="802" height="1" forecolor="#33CC00" backcolor="#000000" uuid="6906a27b-7981-4544-bf2a-ef0977e6a1ac"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="86" height="20" uuid="89894f16-af77-4b72-8314-73a671351e47"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_FECHA_INGRESO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="0" width="88" height="20" uuid="889ad481-89c9-4488-ad4e-d3217dc51bf4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_FECHA_SALIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="87" height="20" uuid="94543446-cc39-40ff-aecc-74dbbc608a0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_TIPO_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="0" width="65" height="20" uuid="aa107c0f-7927-4659-92ca-76f2569aad31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_PRECIO_HORA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="0" width="51" height="20" uuid="ba0fa986-562f-4dd3-8435-5ff22231054a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_TOTAL_HORAS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="59" height="20" uuid="f7dc7c96-2888-4185-b2c9-4befdafe3efb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_TOTAL_MINUTOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="0" width="73" height="20" uuid="ea911281-921f-4ed9-8b10-3056312bdb87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_PLACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="587" y="0" width="62" height="20" forecolor="#000033" uuid="5016b5a7-38a7-4543-9549-6b51b7aa9e1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_COBRADO_PARQUEO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="659" y="0" width="61" height="20" forecolor="#993300" uuid="3731cc4f-44e3-46ac-98a3-e885552ff99b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_COBRADO_LAVADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="736" y="0" width="66" height="20" forecolor="#333300" uuid="6e4641da-1d1b-4718-8e6e-282089a997eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_lavado_mas_parqueo_COBRADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="99" height="20" uuid="045bb75f-7455-43f8-aa49-e38a779da780"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Vehículos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="96" y="0" width="100" height="20" forecolor="#333300" uuid="949b9f73-46ab-4c23-aa7d-0c871ef5bdf3"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{numRegistros}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="34" width="99" height="20" uuid="2396db4f-daa3-4f2a-b686-d17a3c050297"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$ Ingresos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="96" y="34" width="100" height="20" forecolor="#333300" uuid="9dcb17d4-06ab-4d88-9770-f86cb9fac127"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalCobrado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="759" y="0" width="42" height="20" forecolor="#333300" uuid="60634f96-197d-4404-b765-7d919eb25e4e"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="695" y="0" width="64" height="20" uuid="7b090a0a-1b6f-4b66-a7bb-dde4a92c4261"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="40" width="100" height="20" uuid="ec6c41ac-70a7-4bda-af3c-451c91791ea5"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Páginas:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="759" y="40" width="42" height="20" forecolor="#333300" uuid="e79c2de5-c292-4b50-91d1-712807415089"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

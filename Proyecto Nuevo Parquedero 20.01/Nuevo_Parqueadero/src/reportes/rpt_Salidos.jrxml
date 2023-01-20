@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62a271ae-37e0-40cc-9ef6-66158b88914e">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtrar_fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tabla_autos_salidos.`SALIDA_DATE` AS tabla_autos_salidos_SALIDA_DATE,
+     tabla_autos_salidos.`FECHA_INGRESO` AS tabla_autos_salidos_FECHA_INGRESO,
+     tabla_autos_salidos.`FECHA_SALIDA` AS tabla_autos_salidos_FECHA_SALIDA,
+     tabla_autos_salidos.`PLACA` AS tabla_autos_salidos_PLACA,
+     tabla_autos_salidos.`TIPO_VEHICULO` AS tabla_autos_salidos_TIPO_VEHICULO,
+     tabla_autos_salidos.`PRECIO_HORA` AS tabla_autos_salidos_PRECIO_HORA,
+     tabla_autos_salidos.`TOTAL_HORAS` AS tabla_autos_salidos_TOTAL_HORAS,
+     tabla_autos_salidos.`TOTAL_MINUTOS` AS tabla_autos_salidos_TOTAL_MINUTOS,
+     tabla_autos_salidos.`COBRADO` AS tabla_autos_salidos_COBRADO
+FROM
+     `tabla_autos_salidos` tabla_autos_salidos $P!{filtrar_fecha}
+ORDER BY tabla_autos_salidos.SALIDA_DATE DESC]]>
+	</queryString>
+	<field name="tabla_autos_salidos_SALIDA_DATE" class="java.sql.Date"/>
+	<field name="tabla_autos_salidos_FECHA_INGRESO" class="java.sql.Timestamp"/>
+	<field name="tabla_autos_salidos_FECHA_SALIDA" class="java.sql.Timestamp"/>
+	<field name="tabla_autos_salidos_PLACA" class="java.lang.String"/>
+	<field name="tabla_autos_salidos_TIPO_VEHICULO" class="java.lang.String"/>
+	<field name="tabla_autos_salidos_PRECIO_HORA" class="java.lang.String"/>
+	<field name="tabla_autos_salidos_TOTAL_HORAS" class="java.lang.Integer"/>
+	<field name="tabla_autos_salidos_TOTAL_MINUTOS" class="java.lang.Integer"/>
+	<field name="tabla_autos_salidos_COBRADO" class="java.lang.Double"/>
+	<variable name="num_Vehiculos" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tabla_autos_salidos_TIPO_VEHICULO}]]></variableExpression>
+	</variable>
+	<variable name="dinero_Generado" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tabla_autos_salidos_COBRADO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="0" width="388" height="34" forecolor="#339900" uuid="2f47f33a-a470-4bac-936d-6f5c7b5964bf"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Vehículos Retirados Parqueo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="34" width="258" height="19" uuid="c5e6cc58-fae1-417b-8c5f-37fdf54e8437"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto: ronny-leo2011@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="167" y="53" width="245" height="20" uuid="15a9fea7-efd5-4531-b541-73a0fef485a4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono: 0981806210 -2764967]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="0eb99d3f-867d-4145-a2ae-f4d0e27e55fa"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="112" y="0" width="135" height="20" forecolor="#333300" uuid="0c8d0767-5915-4acf-818b-ac79b145b54a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="32" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="1d57aee0-e5ed-443a-b856-593ed577521a"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="68" height="20" backcolor="#99FF33" uuid="8db46122-074f-41cd-b373-7e5e20b1235f"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F_Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="86" y="0" width="68" height="20" backcolor="#99FF33" uuid="36e32e33-7d94-48f7-a832-73e253b72bcd"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F_Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="177" y="0" width="50" height="20" backcolor="#99FF33" uuid="bb7aa929-9c48-4e07-8abe-25defa82cffc"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="247" y="1" width="70" height="20" backcolor="#99FF33" uuid="f991fc61-30fe-442c-90ca-20a82fa3f510"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="322" y="1" width="71" height="20" backcolor="#99FF33" uuid="0b28444a-3452-476f-a973-fd74104e9ead"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P/Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="403" y="1" width="40" height="20" backcolor="#99FF33" uuid="4e6ee8db-06c3-4bae-86e1-ccf903174f4d"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T_H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="460" y="1" width="40" height="20" backcolor="#99FF33" uuid="b9ee67b0-92d5-464d-8aac-290412f8760b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T_M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="513" y="1" width="40" height="20" backcolor="#99FF33" uuid="472f0155-cb32-42e5-b2ab-23638199360a"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="24" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="ce13933c-73cf-4dde-891b-db942ea317ac"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="78" height="20" uuid="48f71564-09d1-4e46-9a20-7996535f2bad"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_FECHA_INGRESO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="0" width="78" height="20" uuid="7b143fca-2105-4536-ac0c-3216266712fe"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_FECHA_SALIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="50" height="20" uuid="037ecf0b-3149-42de-86b6-a786592c3666"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_PLACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="0" width="75" height="20" uuid="d6f1ab69-d91b-4855-8485-ce39d67f1607"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_TIPO_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="4" width="55" height="20" uuid="685a200d-25a7-4c2b-ad98-8e42c8463d48"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_PRECIO_HORA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="4" width="40" height="20" uuid="e7fea77a-b474-411b-8f60-ad42d78e275f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_TOTAL_HORAS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="4" width="40" height="20" uuid="fd286ab8-a8cd-42e8-84f4-fc48fc68cb93"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_TOTAL_MINUTOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="4" width="40" height="20" forecolor="#333300" uuid="bb59601b-0d13-4d84-9cbd-f199e596ca4c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_autos_salidos_COBRADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="0" width="100" height="20" forecolor="#000000" uuid="2b72f53a-a719-4104-8ff9-7c3fc8a5778a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Vehiculos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="122" y="0" width="67" height="20" forecolor="#333300" uuid="9212def4-75db-4461-b21f-3c5e174c22d0"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{num_Vehiculos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="27" width="96" height="20" forecolor="#000000" uuid="c3cc2cad-39dd-4d41-82b7-08866a602083"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$ Ingresos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="122" y="27" width="67" height="20" forecolor="#333300" uuid="b3c5cf1e-7b88-412f-a0d3-ea84e422adbd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{dinero_Generado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="0" width="64" height="20" uuid="5ccc259a-b703-4002-99ed-11d00e11d0cd"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="27" width="92" height="20" uuid="9251ace7-9ee9-493f-a300-aff7feb2e04d"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Páginas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="513" y="0" width="32" height="20" uuid="305d4833-c0d8-496f-b2c6-6cdba74c0cc3"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="513" y="27" width="32" height="20" uuid="67e69465-8798-4547-abc8-4bc7724aef61"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

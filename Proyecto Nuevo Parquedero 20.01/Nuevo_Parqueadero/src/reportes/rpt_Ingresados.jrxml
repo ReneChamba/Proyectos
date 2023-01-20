@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="675bef3e-908c-4861-b78d-7bdab9ed7f89">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtrar_fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tabla_autos_ingresos.`DATE_REGISTRO` AS tabla_autos_ingresos_DATE_REGISTRO,
+     tabla_autos_ingresos.`FECHA_REGISTRO` AS tabla_autos_ingresos_FECHA_REGISTRO,
+     tabla_autos_ingresos.`PROPIETARIO` AS tabla_autos_ingresos_PROPIETARIO,
+     tabla_autos_ingresos.`PLACA` AS tabla_autos_ingresos_PLACA,
+     tabla_autos_ingresos.`TIPO_VEHICULO` AS tabla_autos_ingresos_TIPO_VEHICULO,
+     tabla_autos_ingresos.`MOTIVO` AS tabla_autos_ingresos_MOTIVO,
+     tabla_autos_ingresos.`PRECIO_LAVADO` AS tabla_autos_ingresos_PRECIO_LAVADO,
+     tabla_autos_ingresos.`PRECIO_PARQUEO` AS tabla_autos_ingresos_PRECIO_PARQUEO
+FROM
+     `tabla_autos_ingresos` tabla_autos_ingresos $P!{filtrar_fecha}
+ORDER BY tabla_autos_ingresos.`DATE_REGISTRO` DESC]]>
+	</queryString>
+	<field name="tabla_autos_ingresos_DATE_REGISTRO" class="java.sql.Date"/>
+	<field name="tabla_autos_ingresos_FECHA_REGISTRO" class="java.sql.Timestamp"/>
+	<field name="tabla_autos_ingresos_PROPIETARIO" class="java.lang.String"/>
+	<field name="tabla_autos_ingresos_PLACA" class="java.lang.String"/>
+	<field name="tabla_autos_ingresos_TIPO_VEHICULO" class="java.lang.String"/>
+	<field name="tabla_autos_ingresos_MOTIVO" class="java.lang.String"/>
+	<field name="tabla_autos_ingresos_PRECIO_LAVADO" class="java.lang.String"/>
+	<field name="tabla_autos_ingresos_PRECIO_PARQUEO" class="java.lang.String"/>
+	<variable name="num_vehiculos" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tabla_autos_ingresos_DATE_REGISTRO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="110" y="0" width="361" height="35" forecolor="#33CC00" backcolor="#FFFFFF" uuid="c6063e37-f398-4568-9687-3d65a1e1cff7"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Vehículos Ingresados Actual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="30" width="258" height="19" uuid="08ee377c-cb4d-4cd7-ac55-5ff9f8b6ffe2"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto: ronny-leo2011@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="50" width="245" height="20" uuid="aa59cfd2-b28c-4d7f-bffd-ffcb5dde9a9a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono: 0981806210 -2764967]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="20" uuid="78870128-797e-494f-a5a5-4ff8652d06eb"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="123" y="0" width="168" height="20" forecolor="#333300" uuid="cbab1b24-4672-485d-b1de-02047d8ef11e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="30" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="6a05ce3e-5bce-44db-ba54-d1d09a20de5f"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="76" height="20" backcolor="#99FF33" uuid="50bb7f27-ad9b-4f0e-930e-0b73a732ae53"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[fecha Ingre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="91" y="0" width="69" height="20" backcolor="#99FF33" uuid="84feb7ca-cecf-47ff-bb54-360381255af4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Propietario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="0" width="81" height="20" backcolor="#99FF33" uuid="38156b0d-1192-4d28-b9b6-d2d1e55e0742"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="418" y="0" width="61" height="20" backcolor="#99FF33" uuid="a4817b3a-eea0-4dab-80d5-62b64194e450"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[$ Lavado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="262" y="0" width="75" height="20" backcolor="#99FF33" uuid="925318cf-3218-4817-9d12-a8fa24f4e35e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="347" y="0" width="61" height="20" backcolor="#99FF33" uuid="5a6353a7-5339-4993-8258-45db0f3e1963"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Motivo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="490" y="0" width="59" height="20" backcolor="#99FF33" uuid="1276ac15-0be9-4018-aba3-ad3bbb9a5d11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[$ Parqueo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="22" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="00a074d2-4a31-4b2d-a70b-3b720e818357"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="76" height="20" uuid="c0861df1-dcc3-4541-bb36-a37468437d91"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_FECHA_REGISTRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="0" width="69" height="20" uuid="3b81ddc0-7326-4a61-b610-08e498cfd3df"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_PROPIETARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="1" width="81" height="20" uuid="7d52e613-c229-41b4-a723-d40aab0662e4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_PLACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="1" width="75" height="20" uuid="124a02da-6bb9-4aeb-b9f0-d44188f53b49"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_TIPO_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="85" height="20" uuid="92633d1e-c3bb-491d-8ba9-dbc703a6bc1d"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_MOTIVO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="0" width="56" height="20" uuid="ae8cfd92-efed-416e-ae63-cc469ad8c490"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_PRECIO_LAVADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="0" width="48" height="20" uuid="39a28236-5a16-4bef-9d92-f2c3643a48d9"/>
+				<textFieldExpression><![CDATA[$F{tabla_autos_ingresos_PRECIO_PARQUEO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="20" width="100" height="20" uuid="692d0585-a235-4663-abdd-dd7f6b1aed25"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Vehículos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="20" width="50" height="20" forecolor="#333300" uuid="b21b4c15-8f15-4da4-ae19-cdbbdb180e2b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{num_vehiculos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="0" width="32" height="20" uuid="ca1d52f5-05c6-4822-9635-871eacad5800"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="524" y="27" width="32" height="20" uuid="3c2e451e-bfe7-4a75-9401-aebe87a7a113"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="443" y="27" width="92" height="20" uuid="7eb34443-7320-454f-9d9e-8cbd535fa4a0"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Páginas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="64" height="20" uuid="3f10377f-30cd-491b-9bfb-5357742d3ac7"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Página:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1652673-07bc-486f-9691-11dad24d5115">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     tabla_usuarios.`CEDULA` AS tabla_usuarios_CEDULA,
+     tabla_usuarios.`NOMBRE` AS tabla_usuarios_NOMBRE,
+     tabla_usuarios.`CUENTA` AS tabla_usuarios_CUENTA,
+     tabla_usuarios.`TIPO_CUENTA` AS tabla_usuarios_TIPO_CUENTA,
+     tabla_usuarios.`ID_USUARIO` AS tabla_usuarios_ID_USUARIO
+FROM
+     `tabla_usuarios` tabla_usuarios]]>
+	</queryString>
+	<field name="tabla_usuarios_CEDULA" class="java.lang.String"/>
+	<field name="tabla_usuarios_NOMBRE" class="java.lang.String"/>
+	<field name="tabla_usuarios_CUENTA" class="java.lang.String"/>
+	<field name="tabla_usuarios_TIPO_CUENTA" class="java.lang.String"/>
+	<field name="tabla_usuarios_ID_USUARIO" class="java.lang.Integer"/>
+	<variable name="numCuentas" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tabla_usuarios_CEDULA}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement x="129" y="0" width="332" height="29" forecolor="#339900" uuid="696e4f18-454f-41c7-8b8d-16dbeca67cd3"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Cuentas  De Usuarios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="29" width="240" height="20" uuid="22839a82-caa6-48c0-b5e5-8805a3f4ac59"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto: ronny-leo2011@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="49" width="196" height="20" uuid="c46a3a5f-b362-4533-8610-1c1d2e49f98d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono: 0981806210- 2764967]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="0" width="100" height="20" uuid="8a951297-f728-4a11-b403-4c024fd21ecf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="129" y="0" width="146" height="20" forecolor="#333300" uuid="9ab9c883-1bcc-4120-b6e3-1b53f1239600"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="29" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="9293ab66-3692-4fa0-a18a-11306dcff633"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="16" y="0" width="40" height="20" backcolor="#99FF33" uuid="ed76d0d5-d9d4-4ae1-9320-8b569707fd83"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="86" y="0" width="100" height="20" backcolor="#99FF33" uuid="56f53df9-5b29-45b4-a95b-f244acc2c212"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cedula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="206" y="0" width="100" height="20" backcolor="#99FF33" uuid="747f48ef-6dc4-4736-8534-0e2485145d46"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="326" y="2" width="100" height="20" backcolor="#99FF33" uuid="55bea021-fd95-4b9b-8a47-3031c432505f"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="436" y="2" width="100" height="20" backcolor="#99FF33" uuid="0bbef2d1-f2e3-486e-a6d4-9aa95ad76072"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tipo Cuenta]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="25" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="25407f79-5f30-4ae2-94e8-35bd386ee7a2"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="16" y="0" width="40" height="20" uuid="cee69540-d93b-4b74-8428-c5e47e144255"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_usuarios_ID_USUARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="0" width="100" height="20" uuid="de08369f-968f-46dc-bf05-02f26d22ec09"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_usuarios_CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="0" width="100" height="20" uuid="91d66949-b292-432e-83d7-95d993d20db7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_usuarios_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="4" width="100" height="20" uuid="5f708ad0-4dd7-48a7-94f7-a7c2c6077ac6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_usuarios_CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="4" width="100" height="20" forecolor="#333300" uuid="9c0611db-54cd-4fb2-bba6-b1027d1de042"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_usuarios_TIPO_CUENTA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="40" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="0" width="134" height="20" uuid="561a1518-e6b9-4ff5-b6b5-beb7b933b686"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuentas Registradas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="0" width="100" height="20" forecolor="#333300" uuid="f467542c-5bf0-41ed-ade8-c7230abe690d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{numCuentas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="482" y="0" width="60" height="20" uuid="2065e0db-05f7-4953-a27b-cf1ed8d1bfff"/>
+				<text><![CDATA[# Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="20" width="81" height="20" uuid="b35a4283-9339-4e34-9ce3-5095f354e511"/>
+				<text><![CDATA[Total Páginas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="536" y="0" width="19" height="20" uuid="a10d7c1e-14d5-4438-afbd-1eb388ed8d3a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="536" y="20" width="19" height="20" uuid="facc7088-cba6-43e0-bb26-e9f354d364b0"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

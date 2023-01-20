@@ -1,0 +1,140 @@
+@import "variables";
+
+.container--banner {
+  position: relative;
+  // top: 50px;
+  margin-top: 50px;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  max-height: $altoSlider;
+  position: relative;
+  &__imagenes {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: all 0.5s;
+    max-height: $altoSlider;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba($color: rgb(2, 2, 2), $alpha: 0.7);
+    }
+  }
+  &__img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  &__navigation {
+    // EL ancho del contenedor de los span se calculara dependiendo el numero de imagenes
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    height: $altoNavegacion;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.slider-nav {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  // background-color: lighten($color: gray, $amount: 30);
+  background-color: #fff;
+  box-shadow: 2px 2px 2px gray inset;
+
+  &:hover {
+    background-color: $colorTextTitle;
+  }
+  &--active {
+    box-shadow: 2px 2px gray;
+    background-color: #f5a927;
+  }
+}
+.content {
+  max-width: 1000px;
+  // background-color: red;
+  margin: auto;
+}
+.content--intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .subtitle {
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+
+    .portafolio {
+      font-weight: 800;
+      font-size: 1.2em;
+      color: #ffdb9e;
+    }
+  }
+  .paragraph {
+    font-size: 1em;
+    color: #fff;
+    max-width: 500px;
+    letter-spacing: 0.8px;
+  }
+}
+.buttons {
+  opacity: 0;
+  transition: all 0.5s;
+  &__enlace {
+    display: block;
+    width: 100%;
+    max-width: 130px;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.3s;
+    color: $colorTextoResaltado;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and(min-width:300px) {
+  .buttons {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 350px) {
+  .content--intro {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (min-width: 468px) {
+  .content--intro {
+    .subtitle {
+      font-size: 1.5em;
+    }
+    .paragraph {
+      font-size: 1.1em;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "variables";
+
+.container--footer {
+  // background-color: green;
+  box-shadow: 10px 0 5px -2px #888;
+  // box-shadow: 10px 0 5px -2px #888;
+}
+
+[class^="icon-"] {
+  margin-right: 10px;
+
+  // En los enlaces de las redes sociales, estos estan dentro del span
+  a {
+    margin-left: 5px;
+  }
+}
+
+.group-column {
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+}
+.column-33 {
+  width: 100%;
+  padding: 10px 0;
+  border-left: 1.2px solid $colorTexto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 15px;
+  color: $colorTexto;
+
+  .subtitle {
+    color: $colorTextTitle;
+    font-weight: 600;
+    font-size: 1em;
+  }
+}
+.autor {
+  text-align: center;
+  font-weight: 600;
+  color: $colorTextTitle;
+}
+
+@media screen and (min-width: 768px) {
+  .column-33 {
+    width: 30%;
+    &:nth-child(2) {
+      // background-color: red;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}

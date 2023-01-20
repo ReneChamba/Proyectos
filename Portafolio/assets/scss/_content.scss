@@ -1,0 +1,70 @@
+@import "variables";
+
+.description {
+  &__subtitle {
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #2a3b47;
+  }
+  &__paragraph {
+    font-size: 1em;
+    font-weight: normal;
+    color: #747e81;
+  }
+}
+.lamina {
+  padding: 10px 0;
+  background-color: $colorTarjetas;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  background-color: #ffff;
+  cursor: pointer;
+  &__img {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    .lenguaje {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #ffdb9e;
+    }
+    .img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    padding: 10px;
+    box-shadow: 0px 0px 3px $colorTexto;
+    .paragraph {
+      color: $colorTexto;
+    }
+    .fecha {
+      font-weight: bold;
+      font-style: italic;
+      color: $colorTextTitle;
+      .icon-calendar {
+        margin-right: 10px;
+      }
+    }
+    .subtitle {
+      color: $colorTextTitle;
+      font-weight: bold;
+    }
+  }
+  &:hover .tarjeta__img {
+    transform: scale(1.04);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}

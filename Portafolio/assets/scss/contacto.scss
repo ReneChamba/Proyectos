@@ -1,0 +1,65 @@
+@import "variables";
+.container-flex {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
+  width: 100%;
+
+  &__title {
+    // background-color: green;
+    font-size: 1.2em;
+    text-align: center;
+    color: $colorTextTitle;
+  }
+  &__txt {
+    font-size: 1em;
+  }
+}
+.contact-information {
+  color: $colorTexto;
+}
+.form {
+  padding: 10px 0;
+
+  * {
+    display: block;
+    width: 100%;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1em;
+    color: $colorTextTitle;
+  }
+  input,
+  textarea {
+    margin: 10px 0;
+    padding: 10px;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 130px;
+  }
+  &__btn {
+    background-color: $colorTextoResaltado;
+  }
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea {
+  color: $colorTexto;
+}
+@media screen and (min-width: 768px) {
+  .column {
+    width: 45%;
+
+    &:nth-child(2) {
+      margin-left: 10px;
+      border-left: 1.2px solid $colorTextTitle;
+      padding-left: 15px;
+    }
+  }
+}

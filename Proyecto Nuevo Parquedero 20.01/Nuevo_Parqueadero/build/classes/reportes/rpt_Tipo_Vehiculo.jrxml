@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d08d6a2c-c64b-4947-ae7d-70c1d8696b68">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     tabla_tipo_vehiculos.`ID_TIPO_VEHICULO` AS tabla_tipo_vehiculos_ID_TIPO_VEHICULO,
+     tabla_tipo_vehiculos.`NOMBRE` AS tabla_tipo_vehiculos_NOMBRE,
+     tabla_tipo_vehiculos.`PRECIO_HORA` AS tabla_tipo_vehiculos_PRECIO_HORA
+FROM
+     `tabla_tipo_vehiculos` tabla_tipo_vehiculos
+ORDER BY  tabla_tipo_vehiculos.PRECIO_HORA DESC]]>
+	</queryString>
+	<field name="tabla_tipo_vehiculos_ID_TIPO_VEHICULO" class="java.lang.Integer"/>
+	<field name="tabla_tipo_vehiculos_NOMBRE" class="java.lang.String"/>
+	<field name="tabla_tipo_vehiculos_PRECIO_HORA" class="java.lang.Double"/>
+	<variable name="numTipo" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tabla_tipo_vehiculos_ID_TIPO_VEHICULO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="124" y="0" width="299" height="29" forecolor="#339900" uuid="5338ff1b-63f0-4be2-80ac-4124be51042f"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Tipo Vehículos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="29" width="240" height="20" uuid="f49f8e94-c657-4beb-8bf5-983966a2c600"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto: ronny-leo2011@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="49" width="196" height="20" uuid="1a25172d-b110-485d-8112-d8ea7dae75e7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono: 0981806210- 2764967]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="0" width="100" height="20" uuid="44791355-d869-4849-8625-4b0004c8c3dd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Reporte:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="124" y="0" width="135" height="20" forecolor="#333300" uuid="076c430f-39e2-4461-998e-95d213788816"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="40" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="7819b3ee-263a-4526-95b6-a930b22db458"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="24" y="0" width="100" height="20" forecolor="#000000" backcolor="#33CC00" uuid="9becc753-d357-4d9b-a1ea-5caa19464c0a"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="190" y="0" width="100" height="20" forecolor="#000000" backcolor="#33CC00" uuid="636734be-52ce-4a8a-bb4a-2f01e62720ac"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="0" width="100" height="20" forecolor="#000000" backcolor="#33CC00" uuid="25ab4b5c-f735-457a-bdea-1323b4a24c07"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Precio/ Hora]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="22" width="555" height="1" forecolor="#33CC00" backcolor="#000000" uuid="caea5bc7-4598-416b-8813-dede21241b6d"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="0" width="100" height="20" uuid="2cb3d62d-ba74-49b4-bff2-09878803e773"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_tipo_vehiculos_ID_TIPO_VEHICULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="100" height="20" uuid="6b7e0420-30cf-4817-bf67-e55be78ff430"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tabla_tipo_vehiculos_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="20" forecolor="#333300" uuid="c00eca9e-b3dd-4679-a033-dd2dc3213320"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabla_tipo_vehiculos_PRECIO_HORA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="0" width="100" height="20" uuid="1ecb1002-9a0f-4a73-8100-2cb9a3e42ae8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Vehiculos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="112" y="0" width="100" height="20" forecolor="#333300" uuid="0c8d915d-f524-4805-b97b-809e172f7748"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{numTipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="461" y="0" width="57" height="20" uuid="ccfe707e-f06c-4103-8a58-c00fb5a668a8"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[# Página:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="507" y="0" width="48" height="20" uuid="af6dc621-eb04-40db-999e-82289e57a16b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="436" y="27" width="84" height="20" uuid="8a7abc6e-cefe-4654-8fe7-7fc8c02ccdc4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Páginas:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="518" y="27" width="27" height="20" uuid="6a49cd6b-e95d-4923-a3f9-0e78b5ce424a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
